@@ -1,0 +1,37 @@
+# Arquivos gerados pelo Maven
+bin/
+target/
+
+# Arquivos de configuração específicos para o ambiente (ex.: application.properties)
+src/main/resources/application*.properties
+src/test/resources/application*.properties
+.settings/
+.env
+
+# Arquivos de log
+log/
+
+# Outros arquivos e diretórios gerados localmente
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Arquivos de dependências baixadas pelo Maven
+lib/
+
+# Arquivos de compilação
+*.class
+
+# Cache de IDEs
+.vscode/
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Arquivos de build
+build/
+
+#arquivos todo
+*.TODO
