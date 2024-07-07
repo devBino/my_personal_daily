@@ -1,0 +1,22 @@
+name: CI Projeto My Personal Daily
+
+on:
+  push:
+    branches: [develop, release/24.07.1]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Baixando Codigos Fontes do Projeto
+              uses: actions/checkout@v3
+            - name: Setup JDK 17
+              uses: actions/setup-java@v3
+              with:
+                distribuition: 'temurin'
+                java-version: '17'
+                cahce: maven
+
+            - name: Build Projeto My Personal Daily
+              working-directory: ./
+              run: mvn package
