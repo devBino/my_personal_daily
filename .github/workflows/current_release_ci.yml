@@ -13,9 +13,9 @@ jobs:
             - name: Setup JDK 17
               uses: actions/setup-java@v3
               with:
-                distribuition: 'temurin'
+                distribution: 'temurin'
                 java-version: '17'
-                cahce: maven
+                cache: maven
 
             - name: Build Projeto My Personal Daily
               working-directory: ./
