@@ -2,29 +2,29 @@ package br.com.fbm.mypersonaldaily.views;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.FlowLayout;
+import java.awt.Container;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JRootPane;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
-import java.awt.Dimension;
 
-public class VCadPomodoro extends JDialog {
+import br.com.fbm.mypersonaldaily.repository.ifaces.BaseDialogo;
+import br.com.fbm.mypersonaldaily.repository.ifaces.DialogNavigateRecords;
+
+public class VCadPomodoro 
+	extends JDialog implements BaseDialogo, DialogNavigateRecords {
 
 	private static final long serialVersionUID = 1L;
-	private final JPanel ctCenter = new JPanel();
-	private JTextField txtId;
-	private JTextField txtDescricao;
-	private JTextField txtMinTrabalhando;
-	private JTextField txtMinDescansando;
-
+	
+	private JTextField txtId, txtDescricao, txtMinTrabalhando, txtMinDescansando;
+	
+	private JComboBox<String> cbxTipo;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -42,119 +42,124 @@ public class VCadPomodoro extends JDialog {
 	 * Create the dialog.
 	 */
 	public VCadPomodoro() {
-		setUndecorated(true);
-		setTitle("Cadastro de Pomodoro");
-		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 350, 300);
-		getContentPane().setLayout(new BorderLayout());
+		
+		/**
+		 * Configurações iniciais da JDialog
+		 */
+		configsDialog(this, "Cadastro de Pomodoro", 
+				100, 100, 350, 300);
+		
+		/**
+		 * Campos específicos dessa JDialog
+		 */
+		JPanel ctCenter = new JPanel(new BorderLayout());
 		ctCenter.setBorder(new LineBorder(new Color(53, 132, 228)));
 		getContentPane().add(ctCenter, BorderLayout.CENTER);
-		ctCenter.setLayout(null);
+
+		addButtonsNavigate(ctCenter, this);
+		
+		JPanel pnComponentesCenter = new JPanel();
+		ctCenter.add(pnComponentesCenter);
+		pnComponentesCenter.setLayout(null);
 		
 		JLabel lblId = new JLabel("ID");
+		lblId.setBounds(12, 12, 14, 15);
+		pnComponentesCenter.add(lblId);
 		lblId.setFont(new Font("Dialog", Font.BOLD, 12));
-		lblId.setBounds(12, 26, 14, 15);
-		ctCenter.add(lblId);
 		
 		txtId = new JTextField();
+		txtId.setBounds(12, 29, 151, 21);
+		pnComponentesCenter.add(txtId);
 		txtId.setFont(new Font("Dialog", Font.PLAIN, 14));
 		txtId.setColumns(21);
-		txtId.setBounds(12, 46, 157, 21);
-		ctCenter.add(txtId);
-		
-		JButton btnPrev = new JButton("<<");
-		btnPrev.setBounds(218, 44, 61, 25);
-		ctCenter.add(btnPrev);
-		
-		JButton btnNext = new JButton(">>");
-		btnNext.setBounds(281, 44, 61, 25);
-		ctCenter.add(btnNext);
 		
 		JLabel lblMinTrabalhando = new JLabel("Minutos Trabalhando");
+		lblMinTrabalhando.setBounds(12, 55, 151, 15);
+		pnComponentesCenter.add(lblMinTrabalhando);
 		lblMinTrabalhando.setFont(new Font("Dialog", Font.BOLD, 12));
-		lblMinTrabalhando.setBounds(12, 79, 157, 15);
-		ctCenter.add(lblMinTrabalhando);
-		
-		JLabel lblDescrio = new JLabel("Descrição");
-		lblDescrio.setFont(new Font("Dialog", Font.BOLD, 12));
-		lblDescrio.setBounds(12, 129, 69, 15);
-		ctCenter.add(lblDescrio);
-		
-		txtDescricao = new JTextField();
-		txtDescricao.setFont(new Font("Dialog", Font.PLAIN, 14));
-		txtDescricao.setColumns(21);
-		txtDescricao.setBounds(12, 145, 330, 21);
-		ctCenter.add(txtDescricao);
-		
-		JLabel lblTipo = new JLabel("Tipo");
-		lblTipo.setFont(new Font("Dialog", Font.BOLD, 12));
-		lblTipo.setBounds(12, 175, 30, 15);
-		ctCenter.add(lblTipo);
-		
-		JComboBox cbxTipo = new JComboBox();
-		cbxTipo.setBounds(12, 191, 330, 24);
-		ctCenter.add(cbxTipo);
 		
 		txtMinTrabalhando = new JTextField();
+		txtMinTrabalhando.setBounds(12, 77, 151, 21);
+		pnComponentesCenter.add(txtMinTrabalhando);
 		txtMinTrabalhando.setFont(new Font("Dialog", Font.PLAIN, 14));
 		txtMinTrabalhando.setColumns(21);
-		txtMinTrabalhando.setBounds(12, 96, 157, 21);
-		ctCenter.add(txtMinTrabalhando);
 		
 		JLabel lblMinDescansando = new JLabel("Minutos Descansando");
+		lblMinDescansando.setBounds(170, 55, 157, 15);
+		pnComponentesCenter.add(lblMinDescansando);
 		lblMinDescansando.setFont(new Font("Dialog", Font.BOLD, 12));
-		lblMinDescansando.setBounds(185, 79, 157, 15);
-		ctCenter.add(lblMinDescansando);
 		
 		txtMinDescansando = new JTextField();
+		txtMinDescansando.setBounds(170, 77, 157, 21);
+		pnComponentesCenter.add(txtMinDescansando);
 		txtMinDescansando.setFont(new Font("Dialog", Font.PLAIN, 14));
 		txtMinDescansando.setColumns(21);
-		txtMinDescansando.setBounds(185, 96, 157, 21);
-		ctCenter.add(txtMinDescansando);
-		{
-			JPanel ctBottom = new JPanel();
-			ctBottom.setBackground(new Color(153, 193, 241));
-			ctBottom.setBorder(new LineBorder(new Color(53, 132, 228)));
-			ctBottom.setLayout(new FlowLayout(FlowLayout.RIGHT));
-			getContentPane().add(ctBottom, BorderLayout.SOUTH);
-			{
-				JButton btnCancelar = new JButton("Cancelar");
-				btnCancelar.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent arg0) {
-						dispose();
-					}
-				});
-				btnCancelar.setForeground(Color.WHITE);
-				btnCancelar.setBackground(new Color(26, 95, 180));
-				btnCancelar.setActionCommand("OK");
-				ctBottom.add(btnCancelar);
-				getRootPane().setDefaultButton(btnCancelar);
-			}
-			{
-				JButton btnConfirmar = new JButton("Confirmar");
-				btnConfirmar.setBackground(new Color(26, 95, 180));
-				btnConfirmar.setForeground(Color.WHITE);
-				btnConfirmar.setActionCommand("Cancel");
-				ctBottom.add(btnConfirmar);
-			}
-		}
 		
-		JPanel ctTop = new JPanel();
-		ctTop.setPreferredSize(new Dimension(10, 25));
-		ctTop.setBackground(new Color(153, 193, 241));
-		getContentPane().add(ctTop, BorderLayout.NORTH);
-		ctTop.setLayout(new BorderLayout(0, 0));
+		JLabel lblDescrio = new JLabel("Descrição");
+		lblDescrio.setBounds(12, 103, 69, 15);
+		pnComponentesCenter.add(lblDescrio);
+		lblDescrio.setFont(new Font("Dialog", Font.BOLD, 12));
 		
-		JButton btnSair = new JButton("Sair");
-		btnSair.setForeground(Color.WHITE);
-		btnSair.setBackground(new Color(26, 95, 180));
-		ctTop.add(btnSair, BorderLayout.EAST);
+		txtDescricao = new JTextField();
+		txtDescricao.setBounds(12, 122, 315, 21);
+		pnComponentesCenter.add(txtDescricao);
+		txtDescricao.setFont(new Font("Dialog", Font.PLAIN, 14));
+		txtDescricao.setColumns(21);
 		
-		JLabel lblTitulo = new JLabel("Cadastro de Ciclo de Pomodoro");
-		lblTitulo.setForeground(new Color(26, 95, 180));
-		ctTop.add(lblTitulo, BorderLayout.WEST);
+		JLabel lblTipo = new JLabel("Tipo");
+		lblTipo.setBounds(12, 150, 30, 15);
+		pnComponentesCenter.add(lblTipo);
+		lblTipo.setFont(new Font("Dialog", Font.BOLD, 12));
 		
-		setLocationRelativeTo(null);
+		cbxTipo = new JComboBox<>();
+		cbxTipo.setBounds(13, 168, 314, 24);
+		pnComponentesCenter.add(cbxTipo);
+		
+		/**
+		 * Adicionando containers padrões
+		 */
+		addContainerTop("Cadastro de Ciclo de Pomodoro");
+		addContainerBottom();
 		
 	}
+	
+	@Override
+	public Container getContainerPrincipal() {
+		return getContentPane();
+	}
+	
+	@Override
+	public JRootPane getDialogRootPane() {
+		return this.getRootPane();
+	}
+	
+	@Override
+	public void closeDialog() {
+		dispose();
+	}
+	
+	@Override
+	public void confirmar() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public void cancelar() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public void nextRecord() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public void prevRecord() {
+		// TODO Auto-generated method stub
+		
+	}
+	
 }
