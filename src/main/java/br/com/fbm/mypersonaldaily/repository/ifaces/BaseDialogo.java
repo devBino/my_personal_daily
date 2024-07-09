@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Dialog.ModalityType;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -33,6 +34,7 @@ public interface BaseDialogo {
 		dialog.setTitle(titulo);
 		dialog.setBounds(x, y, w, h);
 		dialog.setLocationRelativeTo(null);
+		dialog.setModalityType(ModalityType.APPLICATION_MODAL);
 		
 		getContainerPrincipal().setLayout(new BorderLayout());
 		

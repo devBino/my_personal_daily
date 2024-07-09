@@ -15,6 +15,7 @@ import javax.swing.border.LineBorder;
 
 import br.com.fbm.mypersonaldaily.repository.ifaces.BaseDialogo;
 import br.com.fbm.mypersonaldaily.repository.ifaces.DialogNavigateRecords;
+import br.com.fbm.mypersonaldaily.repository.utils.FontComponentUtils;
 
 public class VCadPomodoro 
 	extends JDialog implements BaseDialogo, DialogNavigateRecords {
@@ -65,55 +66,51 @@ public class VCadPomodoro
 		JLabel lblId = new JLabel("ID");
 		lblId.setBounds(12, 12, 14, 15);
 		pnComponentesCenter.add(lblId);
-		lblId.setFont(new Font("Dialog", Font.BOLD, 12));
 		
 		txtId = new JTextField();
 		txtId.setBounds(12, 29, 151, 21);
 		pnComponentesCenter.add(txtId);
-		txtId.setFont(new Font("Dialog", Font.PLAIN, 14));
 		txtId.setColumns(21);
 		
 		JLabel lblMinTrabalhando = new JLabel("Minutos Trabalhando");
 		lblMinTrabalhando.setBounds(12, 55, 151, 15);
 		pnComponentesCenter.add(lblMinTrabalhando);
-		lblMinTrabalhando.setFont(new Font("Dialog", Font.BOLD, 12));
 		
 		txtMinTrabalhando = new JTextField();
 		txtMinTrabalhando.setBounds(12, 77, 151, 21);
 		pnComponentesCenter.add(txtMinTrabalhando);
-		txtMinTrabalhando.setFont(new Font("Dialog", Font.PLAIN, 14));
 		txtMinTrabalhando.setColumns(21);
 		
 		JLabel lblMinDescansando = new JLabel("Minutos Descansando");
 		lblMinDescansando.setBounds(170, 55, 157, 15);
 		pnComponentesCenter.add(lblMinDescansando);
-		lblMinDescansando.setFont(new Font("Dialog", Font.BOLD, 12));
 		
 		txtMinDescansando = new JTextField();
 		txtMinDescansando.setBounds(170, 77, 157, 21);
 		pnComponentesCenter.add(txtMinDescansando);
-		txtMinDescansando.setFont(new Font("Dialog", Font.PLAIN, 14));
 		txtMinDescansando.setColumns(21);
 		
-		JLabel lblDescrio = new JLabel("Descrição");
-		lblDescrio.setBounds(12, 103, 69, 15);
-		pnComponentesCenter.add(lblDescrio);
-		lblDescrio.setFont(new Font("Dialog", Font.BOLD, 12));
+		JLabel lblDescricao = new JLabel("Descrição");
+		lblDescricao.setBounds(12, 103, 69, 15);
+		pnComponentesCenter.add(lblDescricao);
 		
 		txtDescricao = new JTextField();
 		txtDescricao.setBounds(12, 122, 315, 21);
 		pnComponentesCenter.add(txtDescricao);
-		txtDescricao.setFont(new Font("Dialog", Font.PLAIN, 14));
 		txtDescricao.setColumns(21);
 		
 		JLabel lblTipo = new JLabel("Tipo");
 		lblTipo.setBounds(12, 150, 30, 15);
 		pnComponentesCenter.add(lblTipo);
-		lblTipo.setFont(new Font("Dialog", Font.BOLD, 12));
 		
 		cbxTipo = new JComboBox<>();
 		cbxTipo.setBounds(13, 168, 314, 24);
 		pnComponentesCenter.add(cbxTipo);
+		
+		FontComponentUtils.setFontComponents(lblId, lblMinTrabalhando, lblMinDescansando, lblDescricao, lblTipo);
+
+		FontComponentUtils.setFontComponents(new Font("Dialog", Font.PLAIN, 14), 
+				txtId, txtDescricao, txtMinTrabalhando, txtMinDescansando);
 		
 		/**
 		 * Adicionando containers padrões

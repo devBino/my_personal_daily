@@ -16,6 +16,7 @@ import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
 import br.com.fbm.mypersonaldaily.repository.ifaces.BaseDialogo;
+import br.com.fbm.mypersonaldaily.repository.utils.FontComponentUtils;
 
 public class VConfigPomodoro 
 	extends JDialog implements BaseDialogo {
@@ -57,27 +58,19 @@ public class VConfigPomodoro
 		ctCenter.setLayout(null);
 		
 		JLabel lblMaxTempoCiclo = new JLabel("Tempo Máximo do Ciclo (Minutos)");
-		lblMaxTempoCiclo.setFont(new Font("Dialog", Font.BOLD, 12));
 		lblMaxTempoCiclo.setBounds(8, 34, 277, 15);
 		ctCenter.add(lblMaxTempoCiclo);
 		
 		JLabel lblDescrio = new JLabel("Descrição");
-		lblDescrio.setFont(new Font("Dialog", Font.BOLD, 12));
 		lblDescrio.setBounds(8, 75, 277, 15);
 		ctCenter.add(lblDescrio);
 		
 		txtDescricao = new JTextField();
-		txtDescricao.setFont(new Font("Dialog", Font.PLAIN, 14));
 		txtDescricao.setColumns(21);
 		txtDescricao.setBounds(8, 51, 277, 21);
 		ctCenter.add(txtDescricao);
 		
-		JComboBox<String> cbxTipo = new JComboBox<>();
-		cbxTipo.setBounds(8, 148, 277, 24);
-		ctCenter.add(cbxTipo);
-		
 		txtMaxTempoCiclo = new JTextField();
-		txtMaxTempoCiclo.setFont(new Font("Dialog", Font.PLAIN, 14));
 		txtMaxTempoCiclo.setColumns(21);
 		txtMaxTempoCiclo.setBounds(8, 94, 277, 21);
 		ctCenter.add(txtMaxTempoCiclo);
@@ -87,15 +80,24 @@ public class VConfigPomodoro
 		ctCenter.add(btnPesquisa);
 		
 		JLabel lblProporcaoDescanso = new JLabel("Proporção do Tempo Descansando");
-		lblProporcaoDescanso.setFont(new Font("Dialog", Font.BOLD, 12));
 		lblProporcaoDescanso.setBounds(8, 127, 246, 15);
 		ctCenter.add(lblProporcaoDescanso);
 		
+		JComboBox<String> cbxTipo = new JComboBox<>();
+		cbxTipo.setBounds(8, 148, 277, 24);
+		ctCenter.add(cbxTipo);
+		
 		JCheckBox checkPularDesanso = new JCheckBox("Permite Pular Descanso");
-		checkPularDesanso.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 14));
-		checkPularDesanso.setForeground(new Color(26, 95, 180));
 		checkPularDesanso.setBounds(8, 180, 277, 25);
 		ctCenter.add(checkPularDesanso);
+		
+		FontComponentUtils.setFontComponents(lblMaxTempoCiclo, lblDescrio, lblProporcaoDescanso);
+
+		FontComponentUtils.setFontComponents(new Font("Dialog", Font.PLAIN, 14), 
+				txtDescricao, txtMaxTempoCiclo);
+		
+		FontComponentUtils.setFontComponents(new Font("Dialog", Font.BOLD | Font.ITALIC, 14), 
+				new Color(26, 95, 180), checkPularDesanso);
 		
 		/**
 		 * Adicionando containers padrões

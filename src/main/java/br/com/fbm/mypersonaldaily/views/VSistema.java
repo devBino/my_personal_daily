@@ -84,6 +84,12 @@ public class VSistema extends JFrame {
 		menuBar.add(mnMonitoramento);
 		
 		JMenuItem moniAtividades = new JMenuItem("Atividades");
+		moniAtividades.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				VMoniAtividade view = new VMoniAtividade();
+				view.setVisible(true);
+			}
+		});
 		mnMonitoramento.add(moniAtividades);
 		
 		JMenuItem moniPomodoro = new JMenuItem("Pomodoro");

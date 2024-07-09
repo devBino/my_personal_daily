@@ -15,6 +15,7 @@ import javax.swing.border.LineBorder;
 
 import br.com.fbm.mypersonaldaily.repository.ifaces.BaseDialogo;
 import br.com.fbm.mypersonaldaily.repository.ifaces.DialogNavigateRecords;
+import br.com.fbm.mypersonaldaily.repository.utils.FontComponentUtils;
 
 public class VCadAtividade 
 	extends JDialog implements BaseDialogo, DialogNavigateRecords {
@@ -62,45 +63,43 @@ public class VCadAtividade
 		
 		JLabel lblId = new JLabel("ID");
 		lblId.setBounds(13, 11, 277, 15);
-		lblId.setFont(new Font("Dialog", Font.BOLD, 12));
 		pnComponentesCenter.add(lblId);
 		
 		txtId = new JTextField();
 		txtId.setBounds(13, 28, 277, 21);
-		txtId.setFont(new Font("Dialog", Font.PLAIN, 14));
 		txtId.setColumns(21);
 		pnComponentesCenter.add(txtId);
 		
 		JLabel lblIdExterno = new JLabel("ID Externo");
 		lblIdExterno.setBounds(13, 60, 277, 15);
-		lblIdExterno.setFont(new Font("Dialog", Font.BOLD, 12));
 		pnComponentesCenter.add(lblIdExterno);
 		
 		txtIdExterno = new JTextField();
 		txtIdExterno.setBounds(13, 77, 277, 21);
-		txtIdExterno.setFont(new Font("Dialog", Font.PLAIN, 14));
 		txtIdExterno.setColumns(21);
 		pnComponentesCenter.add(txtIdExterno);
 		
 		JLabel lblDescricao = new JLabel("Descrição");
 		lblDescricao.setBounds(13, 105, 277, 15);
-		lblDescricao.setFont(new Font("Dialog", Font.BOLD, 12));
 		pnComponentesCenter.add(lblDescricao);
 		
 		txtDescricao = new JTextField();
 		txtDescricao.setBounds(13, 123, 277, 21);
-		txtDescricao.setFont(new Font("Dialog", Font.PLAIN, 14));
 		txtDescricao.setColumns(21);
 		pnComponentesCenter.add(txtDescricao);
 		
 		JLabel lblTipo = new JLabel("Tipo");
 		lblTipo.setBounds(12, 149, 278, 15);
-		lblTipo.setFont(new Font("Dialog", Font.BOLD, 12));
 		pnComponentesCenter.add(lblTipo);
 		
 		JComboBox<String> cbxTipo = new JComboBox<String>();
 		cbxTipo.setBounds(12, 168, 278, 24);
 		pnComponentesCenter.add(cbxTipo);
+		
+		FontComponentUtils.setFontComponents(lblId, lblIdExterno, lblDescricao, lblTipo);
+
+		FontComponentUtils.setFontComponents(new Font("Dialog", Font.PLAIN, 14), 
+				txtId, txtIdExterno, txtDescricao);
 		
 		/**
 		 * Adicionando containers padrões
