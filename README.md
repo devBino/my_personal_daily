@@ -2,7 +2,7 @@
 
 ## Resumo
 <p style="text-align: justify;">
-O presente projeto consiste em uma aplicação Java que auxilia nas demandas diárias de um desenvolvedor. Ele permite utilizar a técnica do Pomodoro em paralelo ao controle de atividades. É possível ter visão clara do que das atividades feitas, do que está sendo feito, e das próximas atividades a serem priorizadas. O sistema é capaz conduzir o desenvolvedor no dia a dia, nas suas atividades, oferecendo ferramentas como report automático para daily no dia seguinte, além de notificações, avisando sobre os ciclos do pomodoro.
+O presente projeto consiste em uma aplicação Java que auxilia nas demandas diárias de um desenvolvedor. Ele permite utilizar a técnica do Pomodoro em conjunto ao controle de atividades. É possível ter visão clara das atividades feitas, do que está sendo feito, e das próximas atividades a serem priorizadas. O sistema é capaz conduzir o desenvolvedor no dia a dia, nas suas atividades oferecendo ferramentas como report automático para daily no dia seguinte, além de notificações avisando sobre os ciclos do pomodoro.
 
 
 </p>
