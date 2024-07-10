@@ -35,11 +35,19 @@ public interface BaseFunctionalWindow extends BaseDialogo {
 		//NA
 	}
 	
+	default void inicializarComponentes() {
+		popularTabela();
+		popularCombobox();
+	}
+	
 	/**
 	 * Define métodos padrões para interface 
 	 */
 	boolean salvar();
 	boolean alterar();
 	boolean deletar();
+	
+	void popularTabela();
+	void popularCombobox();
 	
 }

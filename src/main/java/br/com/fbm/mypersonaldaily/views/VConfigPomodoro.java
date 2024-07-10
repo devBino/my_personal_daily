@@ -16,7 +16,7 @@ import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
 import br.com.fbm.mypersonaldaily.repository.ifaces.BaseDialogo;
-import br.com.fbm.mypersonaldaily.repository.utils.FontComponentUtils;
+import br.com.fbm.mypersonaldaily.repository.utils.FontUtils;
 
 public class VConfigPomodoro 
 	extends JDialog implements BaseDialogo {
@@ -91,12 +91,12 @@ public class VConfigPomodoro
 		checkPularDesanso.setBounds(8, 180, 277, 25);
 		ctCenter.add(checkPularDesanso);
 		
-		FontComponentUtils.setFontComponents(lblMaxTempoCiclo, lblDescrio, lblProporcaoDescanso);
+		FontUtils.setFontComponents(lblMaxTempoCiclo, lblDescrio, lblProporcaoDescanso);
 
-		FontComponentUtils.setFontComponents(new Font("Dialog", Font.PLAIN, 14), 
+		FontUtils.setFontComponents(new Font("Dialog", Font.PLAIN, 14), 
 				txtDescricao, txtMaxTempoCiclo);
 		
-		FontComponentUtils.setFontComponents(new Font("Dialog", Font.BOLD | Font.ITALIC, 14), 
+		FontUtils.setFontComponents(new Font("Dialog", Font.BOLD | Font.ITALIC, 14), 
 				new Color(26, 95, 180), checkPularDesanso);
 		
 		/**

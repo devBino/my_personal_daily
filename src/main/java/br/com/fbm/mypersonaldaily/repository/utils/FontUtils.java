@@ -11,10 +11,10 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 
 /**
- * {@code FontComponentUtils} provê métodos úteis
+ * {@code FontUtils} provê métodos úteis
  * para manipulação das fontes dos componentes das views
  */
-public class FontComponentUtils {
+public class FontUtils {
 
 	public static void setFontComponents(final Object... components) {
 		
