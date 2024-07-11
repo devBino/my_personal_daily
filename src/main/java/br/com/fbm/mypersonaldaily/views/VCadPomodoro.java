@@ -15,7 +15,7 @@ import javax.swing.border.LineBorder;
 
 import br.com.fbm.mypersonaldaily.repository.ifaces.BaseDialogo;
 import br.com.fbm.mypersonaldaily.repository.ifaces.DialogNavigateRecords;
-import br.com.fbm.mypersonaldaily.repository.utils.FontUtils;
+import br.com.fbm.mypersonaldaily.views.ui.FontUI;
 
 public class VCadPomodoro 
 	extends JDialog implements BaseDialogo, DialogNavigateRecords {
@@ -107,9 +107,9 @@ public class VCadPomodoro
 		cbxTipo.setBounds(13, 168, 314, 24);
 		pnComponentesCenter.add(cbxTipo);
 		
-		FontUtils.setFontComponents(lblId, lblMinTrabalhando, lblMinDescansando, lblDescricao, lblTipo);
+		FontUI.setFontComponents(lblId, lblMinTrabalhando, lblMinDescansando, lblDescricao, lblTipo);
 
-		FontUtils.setFontComponents(new Font("Dialog", Font.PLAIN, 14), 
+		FontUI.setFontComponents(new Font("Dialog", Font.PLAIN, 14), 
 				txtId, txtDescricao, txtMinTrabalhando, txtMinDescansando);
 		
 		/**

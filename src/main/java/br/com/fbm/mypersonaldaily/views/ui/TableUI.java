@@ -1,25 +1,36 @@
-package br.com.fbm.mypersonaldaily.repository.utils;
+package br.com.fbm.mypersonaldaily.views.ui;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.util.Objects;
 
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 /**
- * {@code TableUtils} provê métodos úteis
+ * {@code TableUI} provê métodos úteis
  * para manipulação de {@code JTable}s
  */
-public class TableUtils {
+public class TableUI {
 
-	public static void configurarTable(final JTable tabela) {
+	public static void configurarTable(final JTable tabela, 
+			final DefaultTableCellRenderer tableCellRender) {
 		
 		tabela.setSelectionForeground(new Color(36, 31, 49));
 		tabela.setSelectionBackground(new Color(98, 160, 234));
 		tabela.setIntercellSpacing(new Dimension(2, 2));
 		tabela.setGridColor(new Color(26, 95, 180));
 		tabela.setDragEnabled(true);
+		
+		Font customFont = new Font("Segoe UI", Font.PLAIN, 12);
+        tabela.setFont(customFont);
+        tabela.setRowHeight(20);
+		
+		if( Objects.nonNull(tableCellRender) ) {
+			tabela.setDefaultRenderer(Object.class, tableCellRender);
+		}
 		
 	}
 	

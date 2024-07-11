@@ -1,4 +1,4 @@
-package br.com.fbm.mypersonaldaily.repository.utils;
+package br.com.fbm.mypersonaldaily.views.ui;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -11,10 +11,10 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 
 /**
- * {@code FontUtils} provê métodos úteis
+ * {@code FontUI} provê métodos úteis
  * para manipulação das fontes dos componentes das views
  */
-public class FontUtils {
+public class FontUI {
 
 	public static void setFontComponents(final Object... components) {
 		

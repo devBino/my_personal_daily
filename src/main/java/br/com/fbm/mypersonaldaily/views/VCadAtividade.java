@@ -15,7 +15,7 @@ import javax.swing.border.LineBorder;
 
 import br.com.fbm.mypersonaldaily.repository.ifaces.BaseDialogo;
 import br.com.fbm.mypersonaldaily.repository.ifaces.DialogNavigateRecords;
-import br.com.fbm.mypersonaldaily.repository.utils.FontUtils;
+import br.com.fbm.mypersonaldaily.views.ui.FontUI;
 
 public class VCadAtividade 
 	extends JDialog implements BaseDialogo, DialogNavigateRecords {
@@ -96,9 +96,9 @@ public class VCadAtividade
 		cbxTipo.setBounds(12, 168, 278, 24);
 		pnComponentesCenter.add(cbxTipo);
 		
-		FontUtils.setFontComponents(lblId, lblIdExterno, lblDescricao, lblTipo);
+		FontUI.setFontComponents(lblId, lblIdExterno, lblDescricao, lblTipo);
 
-		FontUtils.setFontComponents(new Font("Dialog", Font.PLAIN, 14), 
+		FontUI.setFontComponents(new Font("Dialog", Font.PLAIN, 14), 
 				txtId, txtIdExterno, txtDescricao);
 		
 		/**
